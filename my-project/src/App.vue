@@ -1,14 +1,56 @@
+
 <script>
+// import config from './config'
+import {get} from './util'
+import qcloud from 'wafer2-client-sdk'
 import config from './config'
+
 export default {
-  created () {
+  /*
+  methods: {
+    doLogin: function (e) {
+        qcloud.setLoginUrl(config.loginUrl)
+        qcloud.login({
+          success: function (userInfo) {
+            console.log('登录成功', userInfo)
+          },
+          fail: function (err) {
+            console.log('登录失败', err)
+          }
+        })
+    }
+  },
+  */
+  async created () {
+    console.log('小程序启动了')
+    /*
+    // 设置登录地址
+    qcloud.setLoginUrl(config.loginUrl);
+    qcloud.login({
+        success: function (userInfo) {
+            console.log('登录成功', userInfo);
+        },
+        fail: function (err) {
+            console.log('登录失败', err);
+        }
+    });
+    */
+
+    /* 
+    // 调用 util.js
+    const res = await get('/weapp/demo')
+    console.log(123,res)
+    */
+    /*
+    // 封装到util.js里
     wx.request({
       url:config.host + '/weapp/demo',
       success:function(res) {
         console.log(res)
       }
     })
-    console.log('小程序启动了')
+    */
+    
     // 调用API从本地缓存中获取数据
     /*
     const logs = wx.getStorageSync('logs') || []
