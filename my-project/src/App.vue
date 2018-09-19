@@ -1,6 +1,5 @@
 
 <script>
-// import config from './config'
 import {get} from './util'
 import qcloud from 'wafer2-client-sdk'
 import config from './config'
@@ -79,5 +78,20 @@ export default {
   -moz-transition: width 2s;
   -webkit-transition: width 2s;
   -o-transition: width 2s;
+}
+.btn{
+  color:white;
+  background: #ea5a49;
+  margin-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 2px;
+  font-size: 16px;
+  line-height: 40px;
+  height: 40px;
+  width: 100%;
+}
+.btn:active{
+  background: #fa5449;
 }
 </style>
