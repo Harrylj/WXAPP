@@ -1,5 +1,6 @@
 const CONF = {
     // 其他配置 ...
+    // serverHost: 'localhost',
     serverHost: 'localhost',
     tunnelServerUrl: '',
     tunnelSignatureKey: '27fb7d1c161b7ca52d73cce0f1d833f9f5b5ec89',
@@ -30,8 +31,12 @@ const CONF = {
     // create database cAuth
     mysql: {
         host: 'localhost',
+        // host: '192.168.31.129',
+        // host: '171.214.211.87',
         port: 3306,
         user: 'root',
+        // 这里我新建了一个test并授权也没什么用
+        // user: 'test',
         db: 'cAuth',
         pass: '123456',
         char: 'utf8mb4'
