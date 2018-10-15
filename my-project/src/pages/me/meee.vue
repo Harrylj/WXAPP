@@ -14,7 +14,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-import {showSuccess} from '../../util'
+import {showSuccess, post} from '../../util'
 import qcloud from 'wafer2-client-sdk'
 import config from '../../config'
 // import YearProgress from '../../components/YearProgress'
@@ -40,6 +40,15 @@ export default {
     console.log(this.userinfo,this.abc)
   },
   methods: {
+    addBook(isbn) {
+      const res = await post('/weapp/addbook', {
+        isbn,
+        openid: this.userinfo.openid
+      })
+      if(res.code == 0 && res.data.title){
+        showSuccess('添加成功',`${res.data.title}添加成功`)
+      }
+    },
     getabc () {
       console.log('last time')
     },
@@ -47,6 +56,9 @@ export default {
     scanBook () {
       wx.scanCode({
         success: (res) => {
+          if(res.result) {
+            this.addBook(res.result)
+          }
           console.log(res)
         }
       })
