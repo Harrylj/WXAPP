@@ -35,6 +35,6 @@ router.post('/message', controllers.message.post)
 // 调用demo.js
 router.get('/demo', controllers.demo)
 // 添加图书
+// router.post('/addbook', controllers.addbook)
 router.post('/addbook', controllers.addbook)
-
 module.exports = router

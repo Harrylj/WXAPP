@@ -41,10 +41,14 @@ export default {
   },
   methods: {
     addBook(isbn) {
-      const res = await post('/weapp/addbook', {
+      // https://api.douban.com/v2/book/isbn/9787121331565
+      console.log(isbn)
+      // const res = await post('/weapp/addbook', {
+      const res = post('/weapp/addbook', {
         isbn,
         openid: this.userinfo.openid
       })
+      console.log(res)
       if(res.code == 0 && res.data.title){
         showSuccess('添加成功',`${res.data.title}添加成功`)
       }
@@ -59,7 +63,7 @@ export default {
           if(res.result) {
             this.addBook(res.result)
           }
-          console.log(res)
+          console.log(res, res.result)
         }
       })
     },
