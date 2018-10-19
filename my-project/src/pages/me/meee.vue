@@ -37,7 +37,7 @@ export default {
     if(wx.getStorageSync('userinfo')){
       this.userinfo = wx.getStorageSync('userinfo')
     }
-    console.log(this.userinfo,this.abc)
+    console.log(this.userinfo,this.abc,this.userinfo.openId)
   },
   methods: {
     addBook(isbn) {
@@ -46,7 +46,7 @@ export default {
       // const res = await post('/weapp/addbook', {
       const res = post('/weapp/addbook', {
         isbn,
-        openid: this.userinfo.openid
+        openid: this.userinfo.openId
       })
       console.log(res)
       if(res.code == 0 && res.data.title){

@@ -25,22 +25,22 @@ module.exports = async (ctx) => {
         console.log({
             rate, title, image, alt, publisher, summary, price, tags, author
         })
-        console.log(bookinfo)
+        // console.log(bookinfo)
         // tag: 玄幻 1000, 小说500
     }
     console.log(ctx.request.body)
 }
 
+// 获取url json数据
 function getJSON (url) {
     return new Promise((resolve, reject) => {
         https.get(url, res => {
             let urlData = ''
-            console.log(urlData)
             res.on('data', data => {
                 urlData += data
             })
             res.on('end', data => {
-                const bookinfo = JSON.parse(data)
+                const bookinfo = JSON.parse(urlData)
                 if (bookinfo.title) {
                     resolve(bookinfo)
                 }
